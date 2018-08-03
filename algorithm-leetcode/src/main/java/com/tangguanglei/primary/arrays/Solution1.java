@@ -1,5 +1,7 @@
 package com.tangguanglei.primary.arrays;
 
+import com.tangguanglei.utils.PrintUtils;
+
 /**
  * @Description: 从排序数组中删除重复项
  * @Author: tangguanglei
@@ -19,6 +21,6 @@ public class Solution1 {
     }
 
     public static void main(String[] args) {
-        System.out.println(removeDuplicates(new int[]{1, 2, 2, 3, 4, 4, 9}));
+        PrintUtils.print(removeDuplicates(new int[]{1, 2, 2, 3, 4, 4, 9}));
     }
 }
