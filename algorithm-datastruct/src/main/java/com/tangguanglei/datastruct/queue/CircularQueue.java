@@ -1,4 +1,4 @@
-package com.tangguanglei.queue;
+package com.tangguanglei.datastruct.queue;
 
 
 public class CircularQueue {

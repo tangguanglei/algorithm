@@ -1,4 +1,4 @@
-package com.tangguanglei.queue;
+package com.tangguanglei.datastruct.queue;
 
 
 // 用数组实现的队列
