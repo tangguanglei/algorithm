@@ -1,7 +1,9 @@
 package com.tangguanglei.datastruct.queue;
 
 
-// 用数组实现的队列
+/**
+ * 顺序队列
+ */
 public class ArrayQueue {
     // 数组：items，数组大小：n
     private String[] items;

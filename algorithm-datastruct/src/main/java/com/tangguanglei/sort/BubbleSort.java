@@ -2,6 +2,9 @@ package com.tangguanglei.sort;
 
 import java.util.Arrays;
 
+/**
+ * 冒泡排序
+ */
 public class BubbleSort {
 
     // 冒泡排序，a表示数组
