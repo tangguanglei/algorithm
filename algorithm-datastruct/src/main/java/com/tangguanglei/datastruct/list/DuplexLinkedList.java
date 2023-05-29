@@ -1,4 +1,4 @@
-package com.tangguanglei.datastruct.link;
+package com.tangguanglei.datastruct.list;
 
 import com.tangguanglei.datastruct.Node;
 
