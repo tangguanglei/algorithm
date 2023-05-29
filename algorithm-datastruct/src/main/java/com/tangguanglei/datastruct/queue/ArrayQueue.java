@@ -5,33 +5,83 @@ package com.tangguanglei.datastruct.queue;
  * 顺序队列
  */
 public class ArrayQueue {
-    // 数组：items，数组大小：n
+
+    /**
+     * 数组items
+     */
     private String[] items;
+
+    /**
+     * 数组大小
+     */
     private int n = 0;
-    // head表示队头下标，tail表示队尾下标
+
+    /**
+     * head表示队头下标，tail表示队尾下标
+     */
     private int head = 0;
     private int tail = 0;
 
-    // 申请一个大小为capacity的数组
+
+    /**
+     * 申请一个大小为capacity的数组
+     *
+     * @param capacity 数组大小
+     */
     public ArrayQueue(int capacity) {
         items = new String[capacity];
         n = capacity;
     }
 
-    // 入队
+    /**
+     * 入队
+     *
+     * @param item 入队的元素
+     * @return 入队操作结果
+     */
+//    public boolean enqueue(String item) {
+//        //表示队列已经满了
+//        if (tail == n) {
+//            return false;
+//        }
+//
+//        items[tail] = item;
+//        ++tail;
+//        return true;
+//    }
+
+    //入队优化，将item放入队尾
     public boolean enqueue(String item) {
-        // 如果tail == n 表示队列已经满了
-        if (tail == n) return false;
+        //tail==n表示队尾巴没有空间了
+        if (tail == n) {
+            //tail==n　&& head==0表示整个队列都满了
+            if (head == 0) {
+                return false;
+            }
+            //数据搬移
+            for (int i = head; i < tail; i++) {
+                items[i - head] = items[i];
+            }
+            //搬移完成之后重新更新head和tail
+            tail -= head;
+            head = 0;
+        }
+
         items[tail] = item;
         ++tail;
         return true;
     }
 
-    // 出队
+    /**
+     * 出队
+     *
+     * @return 返回操作之前的队列头
+     */
     public String dequeue() {
-        // 如果head == tail 表示队列为空
-        if (head == tail) return null;
-        // 为了让其他语言的同学看的更加明确，把--操作放到单独一行来写了
+        //表示队列为空
+        if (head == 0) {
+            return null;
+        }
         String ret = items[head];
         ++head;
         return ret;

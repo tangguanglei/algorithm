@@ -1,23 +1,26 @@
 package com.tangguanglei.datastruct;
 
-import lombok.Data;
+public class Node<T> {
 
-@Data
-public class Node {
+    public T data;
 
-    private Object data;
+    public Node<T> next;
 
-    private Node next;
+    public Node<T> prev;
 
-    private Node prev;
+    public Node() {}
 
-    public Node(Object data, Node next, Node prev) {
+    public Node(T data) {
+        this.data = data;
+    }
+
+    public Node(T data, Node<T> next, Node<T> prev) {
         this.data = data;
         this.next = next;
         this.prev = prev;
     }
 
-    public Node(Object data, Node next) {
+    public Node(T data, Node<T> next) {
         this.data = data;
         this.next = next;
     }

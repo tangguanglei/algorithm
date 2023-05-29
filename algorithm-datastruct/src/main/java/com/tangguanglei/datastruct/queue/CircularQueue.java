@@ -1,6 +1,9 @@
 package com.tangguanglei.datastruct.queue;
 
 
+/**
+ * 循环队列
+ */
 public class CircularQueue {
     // 数组：items，数组大小：n
     private String[] items;
@@ -18,7 +21,9 @@ public class CircularQueue {
     // 入队
     public boolean enqueue(String item) {
         // 队列满了
-        if ((tail + 1) % n == head) return false;
+        if ((tail + 1) % n == head) {
+            return false;
+        }
         items[tail] = item;
         tail = (tail + 1) % n;
         return true;
@@ -27,7 +32,9 @@ public class CircularQueue {
     // 出队
     public String dequeue() {
         // 如果head == tail 表示队列为空
-        if (head == tail) return null;
+        if (head == tail) {
+            return null;
+        }
         String ret = items[head];
         head = (head + 1) % n;
         return ret;
