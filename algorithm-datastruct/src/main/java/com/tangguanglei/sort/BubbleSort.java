@@ -9,8 +9,9 @@ public class BubbleSort {
 
     // 冒泡排序，a表示数组
     public static void bubbleSort(int[] a) {
-        if (a == null || a.length <= 1) return;
-
+        if (a == null || a.length <= 1) {
+            return;
+        }
         for (int i = 0; i < a.length; ++i) {
             // 提前退出冒泡循环的标志位
             boolean flag = false;

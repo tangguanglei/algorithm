@@ -7,8 +7,9 @@ import java.util.Arrays;
  */
 public class InsertionSort {
     public static void insertionSort(int[] a) {
-        if (a == null || a.length <= 1) return;
-
+        if (a == null || a.length <= 1) {
+            return;
+        }
         for (int i = 1; i < a.length; ++i) {
             int value = a[i];
             int j = i - 1;
