@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 快速排序
  */
-public class QuickStart {
+public class QuickSort {
 
     public static void sort(int[] a, int start, int end) {
         if (start >= end)

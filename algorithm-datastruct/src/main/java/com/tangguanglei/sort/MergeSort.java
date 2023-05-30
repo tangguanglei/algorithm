@@ -8,7 +8,9 @@ import java.util.Arrays;
 public class MergeSort {
 
     public static void sort(int[] a, int start, int end) {
-        if (start >= end) return;
+        if (start >= end) {
+            return;
+        }
         //找出中间索引
         int mid = (start + end) / 2;
         //对左边数组进行递归

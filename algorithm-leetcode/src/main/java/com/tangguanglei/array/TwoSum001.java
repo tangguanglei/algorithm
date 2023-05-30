@@ -4,11 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
- *
- * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * 两数之和
  */
-public class TwoSum1 {
+public class TwoSum001 {
 
     //solution 1
     public int[] twoSum(int[] nums, int target) {
@@ -39,5 +37,13 @@ public class TwoSum1 {
             arrMap.put(nums[i], i);
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        TwoSum001 twoSum001 = new TwoSum001();
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = twoSum001.twoSum(nums, target);
+        assert result[0] == 1 && result[1] == 0;
     }
 }
