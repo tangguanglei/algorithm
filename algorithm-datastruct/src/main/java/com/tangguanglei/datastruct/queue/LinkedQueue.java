@@ -1,25 +1,25 @@
 package com.tangguanglei.datastruct.queue;
 
-import com.tangguanglei.datastruct.Node;
+import com.tangguanglei.datastruct.ListNode;
 
 /**
  * 链式队列
  * @param <T>
  */
 public class LinkedQueue<T> {
-    private Node<T> head;
+    private ListNode<T> head;
 
-    private Node<T> tail;
+    private ListNode<T> tail;
 
     public LinkedQueue() {
-        head = new Node<>();
+        head = new ListNode<>();
         tail = head;
     }
 
     /**
      * 入队
      */
-    public void enqueue(Node<T> node) {
+    public void enqueue(ListNode<T> node) {
         if (node == null) {
             return;
         }
@@ -31,11 +31,11 @@ public class LinkedQueue<T> {
      * 出队
      * @return
      */
-    public Node<T> dequeue() {
+    public ListNode<T> dequeue() {
         if (head.next == tail) {
             return null;
         }
-        Node<T> temp = head;
+        ListNode<T> temp = head;
         head = head.next;
         temp.next = null;
         return temp;

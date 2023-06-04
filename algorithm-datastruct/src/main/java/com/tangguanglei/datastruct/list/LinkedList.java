@@ -1,21 +1,21 @@
 package com.tangguanglei.datastruct.list;
 
-import com.tangguanglei.datastruct.Node;
+import com.tangguanglei.datastruct.ListNode;
 
 /**
  * 单链表 https://juejin.cn/post/6844903584027377677
  */
 public class LinkedList<T> {
 
-    private final Node<T> head = new Node<>();
+    private final ListNode<T> head = new ListNode<>();
 
     /**
      * 添加数据
      * @param node
      */
-    public void addNode(Node<T> node) {
+    public void addNode(ListNode<T> node) {
         //临时节点
-        Node<T> temp = head;
+        ListNode<T> temp = head;
         //找到尾节点
         while (temp.next != null) {
             temp = temp.next;
@@ -23,8 +23,8 @@ public class LinkedList<T> {
         temp.next = node;
     }
 
-    public Node<T> getNode(T data) {
-        Node<T> temp = head;
+    public ListNode<T> getNode(T data) {
+        ListNode<T> temp = head;
         while (temp.next != null) {
             if (temp.next.data == data) {
                 return temp.next;
@@ -35,7 +35,7 @@ public class LinkedList<T> {
     }
 
     public void traverse() {
-        Node<T> temp = head.next;
+        ListNode<T> temp = head.next;
         while (temp != null) {
             if (temp.data != null) {
                 System.out.println("节点:" + temp.data);
@@ -44,11 +44,11 @@ public class LinkedList<T> {
         }
     }
 
-    public void insertNode(Node<T> node, int index) {
+    public void insertNode(ListNode<T> node, int index) {
         if (index <= 0 || index > length()) {
             return;
         }
-        Node<T> temp = head;
+        ListNode<T> temp = head;
         int currentPos = 0;
         while (temp.next != null) {
             if ((index - 1) == currentPos) {
@@ -65,11 +65,11 @@ public class LinkedList<T> {
         if (index <= 0 || index > length()) {
             return;
         }
-        Node<T> temp = head;
+        ListNode<T> temp = head;
         int currentPos = 0;
         while (temp.next != null) {
             if ((index - 1) == currentPos) {
-                Node<T> deleteNode = temp.next;
+                ListNode<T> deleteNode = temp.next;
                 temp.next = temp.next.next;
                 deleteNode = null;
                 return;
@@ -81,7 +81,7 @@ public class LinkedList<T> {
 
     public int length() {
         int length = 0;
-        Node<T> temp = head.next;
+        ListNode<T> temp = head.next;
         while (temp != null) {
             length++;
             temp = temp.next;
