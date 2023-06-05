@@ -31,12 +31,18 @@ public class BinaryTree<T extends Comparable<T>> {
         preOrder(node.right);
     }
 
-    public void preOrderWithStack(TreeNode<T> node) {
+    public void preOrderWithStack(TreeNode<T> root) {
+        if (root == null) {
+            return;
+        }
+
         Stack<TreeNode<T>> stack = new Stack<>();
-        stack.push(node);
+        stack.push(root);
+
         while (!stack.isEmpty()) {
-            node = stack.pop();
-            System.out.println(node);
+            TreeNode<T> node = stack.pop();
+            System.out.print(node.data + " ");
+
             if (node.right != null) {
                 stack.push(node.right);
             }
@@ -60,16 +66,22 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     public void inOrderWithStack(TreeNode<T> root) {
+        if (root == null) {
+            return;
+        }
+
         Stack<TreeNode<T>> stack = new Stack<>();
         TreeNode<T> node = root;
-        while (!stack.isEmpty() || node != null) {
+
+        while (node != null || !stack.isEmpty()) {
             while (node != null) {
                 stack.push(node);
                 node = node.left;
             }
-            TreeNode<T> n = stack.pop();
-            System.out.println(n);
-            node = n.right;
+
+            node = stack.pop();
+            System.out.print(node.data + " ");
+            node = node.right;
         }
     }
 
@@ -86,35 +98,46 @@ public class BinaryTree<T extends Comparable<T>> {
         System.out.println(node);
     }
 
-    public void  postOrderWithStack(TreeNode<T> node) {
+    public void  postOrderWithStack(TreeNode<T> root) {
+        if (root == null) {
+            return;
+        }
+
         Stack<TreeNode<T>> stack1 = new Stack<>();
         Stack<TreeNode<T>> stack2 = new Stack<>();
-        stack1.push(node);
+        stack1.push(root);
+
         while (!stack1.isEmpty()) {
-            TreeNode<T> n = stack1.pop();
-            stack2.push(n);
-            if (n.left != null) {
-                stack1.push(n.left);
+            TreeNode<T> node = stack1.pop();
+            stack2.push(node);
+
+            if (node.left != null) {
+                stack1.push(node.left);
             }
-            if (n.right != null) {
-                stack1.push(n.right);
+            if (node.right != null) {
+                stack1.push(node.right);
             }
         }
+
         while (!stack2.isEmpty()) {
-            TreeNode<T> n = stack2.pop();
-            System.out.println(n);
+            System.out.print(stack2.pop().data + " ");
         }
     }
 
     /**
      * 层次遍历
-     * @param node
+     * @param root
      */
-    public void levelOrder(TreeNode<T> node) {
+    public void levelOrder(TreeNode<T> root) {
+        if (root == null) {
+            return;
+        }
+
         Queue<TreeNode<T>> queue = new LinkedList<>();
-        queue.offer(node);
+        queue.offer(root);
+
         while (!queue.isEmpty()) {
-            node = queue.poll();
+            TreeNode<T> node = queue.poll();
             System.out.println(node);
             if (node.left != null) {
                 queue.offer(node.left);
@@ -124,5 +147,4 @@ public class BinaryTree<T extends Comparable<T>> {
             }
         }
     }
-
 }

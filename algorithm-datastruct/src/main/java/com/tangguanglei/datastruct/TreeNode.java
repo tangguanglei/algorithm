@@ -2,7 +2,7 @@ package com.tangguanglei.datastruct;
 
 public class TreeNode<T extends Comparable<T>> {
 
-    private T data;
+    public T data;
 
     public TreeNode<T> left;
 
