@@ -20,15 +20,15 @@ public class BinaryTree<T extends Comparable<T>> {
 
     /**
      * 前序遍历
-     * @param node
+     * @param root
      */
-    public void preOrder(TreeNode<T> node) {
-        if (node == null) {
+    public void preOrder(TreeNode<T> root) {
+        if (root == null) {
             return;
         }
-        System.out.println(node);
-        preOrder(node.left);
-        preOrder(node.right);
+        System.out.println(root);
+        preOrder(root.left);
+        preOrder(root.right);
     }
 
     public void preOrderWithStack(TreeNode<T> root) {
@@ -54,15 +54,15 @@ public class BinaryTree<T extends Comparable<T>> {
 
     /**
      * 中序遍历
-     * @param node
+     * @param root
      */
-    public void inOrder(TreeNode<T> node) {
-        if (node == null) {
+    public void inOrder(TreeNode<T> root) {
+        if (root == null) {
             return;
         }
-        inOrder(node.left);
-        System.out.println(node);
-        inOrder(node.right);
+        inOrder(root.left);
+        System.out.println(root);
+        inOrder(root.right);
     }
 
     public void inOrderWithStack(TreeNode<T> root) {
@@ -87,15 +87,15 @@ public class BinaryTree<T extends Comparable<T>> {
 
     /**
      * 后序遍历
-     * @param node
+     * @param root
      */
-    public void postOrder(TreeNode<T> node) {
-        if (node == null) {
+    public void postOrder(TreeNode<T> root) {
+        if (root == null) {
             return;
         }
-        postOrder(node.left);
-        postOrder(node.right);
-        System.out.println(node);
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.println(root);
     }
 
     public void  postOrderWithStack(TreeNode<T> root) {
