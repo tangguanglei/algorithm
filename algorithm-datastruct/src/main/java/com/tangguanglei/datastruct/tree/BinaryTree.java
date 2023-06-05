@@ -12,7 +12,7 @@ import java.util.Stack;
  */
 public class BinaryTree<T extends Comparable<T>> {
 
-    private TreeNode<T> root;
+    protected TreeNode<T> root;
 
     public BinaryTree(TreeNode<T> root) {
         this.root = root;
