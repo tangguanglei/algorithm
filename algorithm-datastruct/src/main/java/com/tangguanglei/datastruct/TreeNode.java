@@ -4,7 +4,7 @@ public class TreeNode<T extends Comparable<T>> {
 
     public T data;
 
-    public int height;
+    public int height = 1;
 
     public TreeNode<T> left;
 
