@@ -131,9 +131,9 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
     }
 
     public void deleteNode(TreeNode<T> node) {
-        TreeNode<T> dNode = root;
-        TreeNode<T> dParentNode = null;
-        while (dNode != null && dNode.data != node.data) {
+        TreeNode<T> dNode = root; //要删除的节点，初始化指向根节点
+        TreeNode<T> dParentNode = null; //要删除的节点的父节点
+        while (dNode != null && dNode.data != node.data) { //循环找出待删除节点
             dParentNode = dNode;
             int k = dNode.data.compareTo(node.data);
             if (k > 0) {
@@ -145,19 +145,19 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
         if (dNode == null) {
             return;
         }
-        if (dNode.left != null && dNode.right != null) {
+        if (dNode.left != null && dNode.right != null) { //待删除节点左右字数都存在的case
             TreeNode<T> minNode = dNode.right;
             TreeNode<T> minParentNode = dNode;
             while (minNode.left != null) {
                 minParentNode = minNode;
                 minNode = minNode.left;
             }
-            dNode.data = minNode.data;
-            dNode = minNode;
+            dNode.data = minNode.data; //用待删除节点的右子树最小节点代替它
+            dNode = minNode; //转化为删除右子树最小节点
             dParentNode = minParentNode;
         }
         TreeNode<T> childNode;
-        if (dNode.left != null) {
+        if (dNode.left != null) { //待删除节点只有一个子节点的case
             childNode = dNode.left;
         } else if (dNode.right != null) {
             childNode = dNode.right;
@@ -180,7 +180,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
      */
     public TreeNode<T> getSuccessor(TreeNode<T> node) {
         if (node.right != null) {
-            return min(node);
+            return min(node.right);
         }
         TreeNode<T> successor = null;
         TreeNode<T> curr = root;
@@ -205,7 +205,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
      */
     public TreeNode<T> getPredecessor(TreeNode<T> node) {
         if (node.left != null) {
-            return max(node);
+            return max(node.left);
         }
         TreeNode<T> predecessor = null;
         TreeNode<T> curr = root;
