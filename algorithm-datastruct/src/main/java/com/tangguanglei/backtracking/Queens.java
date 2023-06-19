@@ -1,9 +1,9 @@
-package com.tangguanglei;
+package com.tangguanglei.backtracking;
 
 /**
  * 八皇后回溯算法
  */
-public class Backtracking {
+public class Queens {
 
     int[] result = new int[8];//全局或成员变量,下标表示行,值表示queen存储在哪一列
     public void cal8queens(int row) { // 调用方式：cal8queens(0);
@@ -46,7 +46,7 @@ public class Backtracking {
     }
 
     public static void main(String[] args) {
-        Backtracking backtracking = new Backtracking();
+        Queens backtracking = new Queens();
         backtracking.cal8queens(0);
     }
 }
