@@ -2,6 +2,7 @@ package com.tangguanglei.datastruct.tree;
 
 import com.tangguanglei.datastruct.TreeNode;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -144,6 +145,24 @@ public class BinaryTree<T extends Comparable<T>> {
             }
             if (node.right != null) {
                 queue.offer(node.right);
+            }
+        }
+    }
+
+    public void deepOrder(TreeNode<T> root) {
+        if (root == null) {
+            return;
+        }
+        Deque<TreeNode<T>> stack = new LinkedList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode<T> node = stack.pop();
+            System.out.println(node);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
             }
         }
     }

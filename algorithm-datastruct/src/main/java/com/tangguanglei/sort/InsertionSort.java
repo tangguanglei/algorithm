@@ -11,6 +11,7 @@ public class InsertionSort {
             return;
         }
         for (int i = 1; i < a.length; ++i) {
+            //未排序区间的值
             int value = a[i];
             int j = i - 1;
             // 查找插入的位置
@@ -26,7 +27,7 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] a = {1,4,6,9,3,5,10,11,2,8};
+        int[] a = {9,8,7,6,5,4,3,2,1,0};
         insertionSort(a);
         System.out.println(Arrays.toString(a));
     }
