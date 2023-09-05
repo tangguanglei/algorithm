@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class CourseNum207 {
+public class 课程表207 {
     List<List<Integer>> edges;
     int[] indeg;
 
@@ -45,7 +45,7 @@ public class CourseNum207 {
     public static void main(String[] args) {
         int numCourses = 3;
         int[][] prerequisites = new int[][]{{0, 1}, {0, 2}};
-        CourseNum207 solution = new CourseNum207();
+        课程表207 solution = new 课程表207();
         System.out.println(solution.canFinish(numCourses, prerequisites));
     }
 }
