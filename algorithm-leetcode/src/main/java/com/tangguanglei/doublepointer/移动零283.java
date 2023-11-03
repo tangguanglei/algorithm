@@ -1,9 +1,6 @@
-package com.tangguanglei;
+package com.tangguanglei.doublepointer;
 
-import javax.swing.plaf.SliderUI;
-import java.util.*;
-
-class Solution {
+public class 移动零283 {
     public void moveZeroes(int[] nums) {
         int n = nums.length, left = 0, right = 0;
         while (right < n) {
@@ -19,11 +16,5 @@ class Solution {
         int temp = nums[left];
         nums[left] = nums[right];
         nums[right] = temp;
-    }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] nums = new int[]{3,4,5,0,0,1};
-        solution.moveZeroes(nums);
     }
 }
