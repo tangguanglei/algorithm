@@ -1,29 +1,32 @@
 package com.tangguanglei;
 
-import javax.swing.plaf.SliderUI;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class Solution {
-    public void moveZeroes(int[] nums) {
-        int n = nums.length, left = 0, right = 0;
-        while (right < n) {
-            if (nums[right] != 0) {
-                swap(nums, left, right);
-                left++;
-            }
-            right++;
+    public List<Integer> partitionLabels(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            map.put(c, i);
         }
-    }
-
-    public void swap(int[] nums, int left, int right) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
+        List<Integer> ans = new ArrayList<>();
+        int maxPosition = map.get(s.charAt(0));
+        for (int i = 1; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (map.get(c) > maxPosition) {
+                ans.add(i - maxPosition + 1);
+                maxPosition = i;
+            }
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
+        String s = "ababcbacadefegdehijhklij";
         Solution solution = new Solution();
-        int[] nums = new int[]{3,4,5,0,0,1};
-        solution.moveZeroes(nums);
+        solution.partitionLabels(s);
     }
 }

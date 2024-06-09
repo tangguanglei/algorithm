@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * 数组中的第K个最大元素
  */
-public class KthLargest215 {
+public class 数组中的第K个最大元素215 {
     Random random = new Random();
 
     public int findKthLargest(int[] nums, int k) {
@@ -45,8 +45,8 @@ public class KthLargest215 {
     }
 
     public static void main(String[] args) {
-        KthLargest215 kthLargest215 = new KthLargest215();
+        数组中的第K个最大元素215 solution = new 数组中的第K个最大元素215();
         int[] a = {1,4,6,9,3,5,10,11,2,8};
-        System.out.println(kthLargest215.findKthLargest(a, 3));
+        System.out.println(solution.findKthLargest(a, 3));
     }
 }

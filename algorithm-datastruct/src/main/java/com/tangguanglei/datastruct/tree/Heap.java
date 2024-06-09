@@ -35,7 +35,7 @@ public class Heap {
     }
 
     private void buildHeap(int[] a, int n) {
-        for (int i = n/2; i >= 1; --i) {
+        for (int i = n/2; i >= 1; --i) { //找到最后一个非叶子结点，然后按从下往上，从右到左的顺序构建二叉堆
             heapify(a, n, i);
         }
     }
