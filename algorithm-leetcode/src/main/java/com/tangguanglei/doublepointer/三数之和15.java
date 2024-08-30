@@ -36,4 +36,11 @@ public class 三数之和15 {
         }
         return ans;
     }
+
+    public static void main(String[] args) {
+        三数之和15 instant = new 三数之和15();
+        int[] nums = new int[]{0, 0, 0, 0};
+        List<List<Integer>> ans = instant.threeSum(nums);
+        System.out.println(ans);
+    }
 }
