@@ -5,27 +5,40 @@ import java.util.List;
 
 public class 螺旋矩阵54 {
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> order = new ArrayList<Integer>();
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return order;
-        }
-        int rows = matrix.length, columns = matrix[0].length;
-        boolean[][] visited = new boolean[rows][columns];
-        int total = rows * columns;
-        int row = 0, column = 0;
-        int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-        int directionIndex = 0;
-        for (int i = 0; i < total; i++) {
-            order.add(matrix[row][column]);
-            visited[row][column] = true;
-            int nextRow = row + directions[directionIndex][0], nextColumn = column + directions[directionIndex][1];
-            if (nextRow < 0 || nextRow >= rows || nextColumn < 0 || nextColumn >= columns || visited[nextRow][nextColumn]) {
-                directionIndex = (directionIndex + 1) % 4;
+        List<Integer> ans = new ArrayList<>();
+
+        int up = 0, down = matrix.length - 1, left = 0, right = matrix[0].length - 1;
+        while (true) {
+            for (int i = left; i <= right; i++) {
+                ans.add(matrix[up][i]);
             }
-            row += directions[directionIndex][0];
-            column += directions[directionIndex][1];
+            up++;
+            if (up > down) {
+                break;
+            }
+            for (int i = up; i <= down; i++) {
+                ans.add(matrix[i][right]);
+            }
+            right--;
+            if (right < left) {
+                break;
+            }
+            for (int i = right; i >= left; i--) {
+                ans.add(matrix[down][i]);
+            }
+            down--;
+            if (down < up) {
+                break;
+            }
+            for (int i = down; i >= up; i--) {
+                ans.add(matrix[i][left]);
+            }
+            left++;
+            if (left > right) {
+                break;
+            }
         }
-        return order;
+        return ans;
     }
 
     public static void main(String[] args) {
