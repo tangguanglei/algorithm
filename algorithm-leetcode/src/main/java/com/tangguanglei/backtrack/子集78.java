@@ -5,22 +5,20 @@ import java.util.List;
 
 public class 子集78 {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        result.add(new ArrayList<>());
-        for (int num : nums) {
-            List<List<Integer>> newSubsets = new ArrayList<>();
-            for (List<Integer> subset : result) {
-                List<Integer> newSubset = new ArrayList<>(subset);
-                newSubset.add(num);
-                newSubsets.add(newSubset);
-            }
-            result.addAll(newSubsets);
-        }
-        return result;
+        List<List<Integer>> ans = new ArrayList<>();
+        backtrack(nums, ans, new ArrayList<>(), 0);
+        return ans;
     }
 
-    public static void main(String[] args) {
-        子集78 solution = new 子集78();
-        System.out.println(solution.subsets(new int[]{1,2,3}));
+    public void backtrack(int[] nums, List<List<Integer>> ans, List<Integer> path, int index) {
+        ans.add(new ArrayList<>(path));
+        if (index >= nums.length) {
+            return;
+        }
+        for (int i = index; i < nums.length; i++) {
+            path.add(nums[i]);
+            backtrack(nums, ans, path, i + 1);
+            path.remove(path.size() - 1);
+        }
     }
 }
